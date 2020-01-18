@@ -2,6 +2,9 @@
 
 ## Final Project - Pop Star Zodiac
 
+### How to Use
+You can run my website locally by typing the command `node server` and navigating to `localhost:4000` in your browser.
+
 ### Additional Materials
 * Flow chart
 * Style Tile
