@@ -3,7 +3,7 @@
 ## Final Project - Pop Star Zodiac
 
 ### How to Use
-You can run my website locally by typing the command `node server` and navigating to `localhost:4000` in your browser.
+You can view my website at `https://mariasdominguez.com/idm231/`
 
 ### Additional Materials
 * Flow chart
