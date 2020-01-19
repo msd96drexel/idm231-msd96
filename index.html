@@ -7,10 +7,7 @@
 </head>
 
 <body>
-
-    <!-- HOME -->
-
-    <div class="home">
+    <div id="home" class="home">
         <div class="tokens tokens--left">
             <div class="col">
                 <div class="token"></div>
@@ -31,7 +28,7 @@
                     <label class="input-label">YOUR BIRTHDATE</label>
                     <input type="date">
                 </div>
-                <button class="btn--primary">GET RESULTS</button>
+                <a href="/detail.html"><button class="btn--primary" onclick="showDetail()">GET RESULTS</button></a>
             </div>
         </div>
 
@@ -48,6 +45,9 @@
             </div>
         </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="client.js"></script>
 </body>
 
 </html>
