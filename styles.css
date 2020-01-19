@@ -64,6 +64,10 @@ input {
     flex-direction: column;
 }
 
+.hidden {
+    display: none;
+}
+
 
 /* home */
 
