@@ -5,6 +5,8 @@
 ### How to Use
 You can view my website at `https://mariasdominguez.com/idm231/`
 
+You can run this project locally by following the instructions on <a href="https://github.com/msdominguez/portfolio">`https://github.com/msdominguez/portfolio`</a>
+
 ### Additional Materials
 * Flow chart
 * Style Tile
