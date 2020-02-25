@@ -34,6 +34,7 @@ function showDetailInput() {
         $.ajax({
             type: "GET",
             url: "/idm231/detail.html",
+            async: "false",
             success: function(msg) {
                 populatePage(zod);
                 $("#content").html(msg);
@@ -58,34 +59,27 @@ $(window).click(function(e) {
 
 $(".token").click(function() {
     zod = $(this).attr("id");
-    populatePage(zod);
 
     $.ajax({
         type: "GET",
         url: "/idm231/detail.html",
-        async: "false",
         success: function(msg) {
             populatePage(zod);
             $("#content").html(msg);
-
-            setTimeout(3000, playSound());
         }
     });
 });
-
-function playSound() {
-    document.getElementById('audio').play();
-}
 
 function populatePage(zod) {
     $.ajax({
         type: "GET",
         url: "/getZod",
         dataType: "json",
-        async: "false",
         success: function(msg) {
             msg.zods.map(val => {
                 if (val.shortname === zod) {
+                    $("#audio-src").attr("src", val.song);
+
                     $("#description").html(val.description);
                     $("#detail-title").html(val.artist);
                     $("#birthdate").html(`Born: ${val.dob}`);
@@ -94,11 +88,7 @@ function populatePage(zod) {
                     $("#song-link").attr("href", val.songlink);
                     $("#song-title").html(val.songtitle);
 
-                    $("#audio-src").attr("src", val.song);
-
-                    $('#detail').removeClass('hidden');
-                    // $("#audio")[0].play();
-
+                    $('#audio').append(`<source id="audio-src" src="${val.songlink}" type="audio/mpeg">`)
                 }
             });
         }
