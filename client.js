@@ -14,6 +14,7 @@ let zods = [
 ];
 
 let userBirth;
+let zod;
 
 function isValidDate(d) {
     return d instanceof Date && !isNaN(d);
@@ -21,7 +22,6 @@ function isValidDate(d) {
 
 function storeBirthInput() {
     userBirth = new Date($("#birth-input").val());
-    console.log('stored', userBirth);
 }
 
 function showDetailInput() {
@@ -29,7 +29,7 @@ function showDetailInput() {
         let userMonth = userBirth.getMonth() + 1;
         let userDay = userBirth.getUTCDate();
 
-        let zod = dateToZodiac(userMonth, userDay);
+        zod = dateToZodiac(userMonth, userDay);
 
         $.ajax({
             type: "GET",
@@ -57,7 +57,9 @@ $(window).click(function(e) {
 });
 
 $(".token").click(function() {
-    let zod = $(this).attr("id");
+    zod = $(this).attr("id");
+    populatePage(zod);
+
     $.ajax({
         type: "GET",
         url: "/idm231/detail.html",
@@ -65,27 +67,38 @@ $(".token").click(function() {
         success: function(msg) {
             populatePage(zod);
             $("#content").html(msg);
+
+            setTimeout(3000, playSound());
         }
     });
 });
+
+function playSound() {
+    document.getElementById('audio').play();
+}
 
 function populatePage(zod) {
     $.ajax({
         type: "GET",
         url: "/getZod",
         dataType: "json",
+        async: "false",
         success: function(msg) {
             msg.zods.map(val => {
                 if (val.shortname === zod) {
                     $("#description").html(val.description);
                     $("#detail-title").html(val.artist);
-                    $("#birthdate").append(val.dob);
+                    $("#birthdate").html(`Born: ${val.dob}`);
                     $("#detail-img").attr("src", val.img);
                     $("#caption").html(`${val.title} • ${val.range}`);
                     $("#song-link").attr("href", val.songlink);
-                    $("#song-title").html(val.song);
+                    $("#song-title").html(val.songtitle);
+
+                    $("#audio-src").attr("src", val.song);
 
                     $('#detail').removeClass('hidden');
+                    // $("#audio")[0].play();
+
                 }
             });
         }
