@@ -3,7 +3,7 @@
 ## Final Project - Pop Star Zodiac
 
 ### How to Use
-You can view my website at <a href="http://mariasdominguez.herokuapp.com/idm231//">`http://mariasdominguez.herokuapp.com/idm231/`</a>.
+You can view my website at <a href="http://mariasdominguez.herokuapp.com/idm231/">`http://mariasdominguez.herokuapp.com/idm231/`</a>.
 
 You can run this project locally by following the instructions on <a href="https://github.com/msdominguez/portfolio">`https://github.com/msdominguez/portfolio`</a>.
 
